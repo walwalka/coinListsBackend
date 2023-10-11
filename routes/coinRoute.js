@@ -1,5 +1,6 @@
 import express from "express";
 import { Coin } from '../models/coinModel.js';
+import { pool } from '../coinDatabase/coinDatabase.js'
 
 const router = express.Router();
 

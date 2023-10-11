@@ -3,6 +3,7 @@ import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import { Coin } from './models/coinModel.js';
 import coinRoute from './routes/coinRoute.js';
+import coinRouteNew from './routes/coinRouteNew.js';
 import cors from 'cors';
 
 
@@ -21,6 +22,8 @@ app.get('/', (request, response) => {
 });
 
 app.use('/coins', coinRoute);
+
+app.use('/coins_new', coinRouteNew)
 
 // calling mongoose library for object modeling
 mongoose
