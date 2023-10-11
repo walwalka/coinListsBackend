@@ -15,11 +15,11 @@ export const pool = new Pool({
       const query = `
         CREATE TABLE IF NOT EXISTS coins (
           id SERIAL PRIMARY KEY,
-          type date NOT NULL,
+          type VARCHAR(255) NOT NULL,
           mintlocation VARCHAR(255) NOT NULL,
-          mintyear NUMERIC(10, 2) NOT NULL,
+          mintyear DATE NOT NULL,
           circulation VARCHAR(255) NOT NULL,
-          grade NUMERIC(10, 2)
+          grade VARCHAR(255) NOT NULL
         );
       `;
   
