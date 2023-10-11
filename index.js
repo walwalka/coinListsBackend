@@ -22,7 +22,9 @@ app.get('/', (request, response) => {
 
 app.use('/coins', coinRoute);
 
-app.use('/coins_new', coinRouteNew)
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`)
+  });
 
 // calling mongoose library for object modeling
 //mongoose
