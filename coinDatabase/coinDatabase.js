@@ -3,10 +3,10 @@ import pg from 'pg'
 const { Pool } = pg;
 
 export const pool = new Pool({
-    user: 'postgres',
-    host: '10.3.100.223',
+    user: 'coinsapp-srv',
+    host: '10.2.100.54',
     database: 'coins',
-    password: 'P0stGr3sAdmin',
+    password: 'FoW3cN2NnirYyv9ary69',
     port: 5432,
   });
 
