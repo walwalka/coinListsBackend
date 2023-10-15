@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: dev-coins-01
+    runs-on: coinsBackend
 
     steps:
     - uses: actions/checkout@v3
