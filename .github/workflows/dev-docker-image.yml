@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: coinsBackend
+    runs-on: dev
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
