@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: dev-coins-01
+    runs-on: coinsBackend
 
     strategy:
       matrix:
