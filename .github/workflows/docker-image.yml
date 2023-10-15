@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: self-hosted
+    runs-on: dev-coins-01
 
     steps:
     - uses: actions/checkout@v3
