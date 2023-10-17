@@ -14,6 +14,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile_dev --tag walwalka/coinlistsbackend:dev
       env:
+        CI: true
         SQL_SERVER_IP: ${{secrets.SQL_SERVER_IP}}
         SQL_SERVER_PORT: ${{secrets.SQL_SERVER_PORT}}
         SQL_USER: ${{secrets.SQL_USER}}
