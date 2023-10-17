@@ -2,7 +2,7 @@
 FROM node:alpine
 EXPOSE 8081
 WORKDIR /app
-COPY --from=builder .env.development ./
+COPY .env.development ./
 COPY package*.json .
 RUN npm install
 COPY . .
