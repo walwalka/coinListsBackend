@@ -2,8 +2,9 @@
 FROM node:alpine
 EXPOSE 8081
 WORKDIR /app
+COPY --from=builder .env.development ./
 COPY package*.json .
 RUN npm install
 COPY . .
 # RUN npm run build
-CMD ["npm", "start"]
+CMD ["npm", "dev"]
