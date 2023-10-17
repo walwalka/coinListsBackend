@@ -1,5 +1,6 @@
+import "dotenv/config.js";
 import pg from 'pg'
-import { sqlIp, sqlDb, sqlPass, sqlUser, sqlPort } from '../config.js';
+import { sqlIp , sqlDb, sqlPass, sqlUser, sqlPort } from '../config.js';
 
 const { Pool } = pg;
 

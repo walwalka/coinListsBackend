@@ -1,6 +1,11 @@
-export const PORT = 8081;
-export const sqlIp= '10.2.100.51';
-export const sqlPort= 5432;
-export const sqlUser= 'coinsapp-srv';
-export const sqlDb= 'coins';
-export const sqlPass= 'FoW3cN2NnirYyv9ary69';
+import process from 'node:process';
+import * as dotenv from 'dotenv'
+
+dotenv.config({path: '.env'});
+
+export const PORT = process.env.APP_PORT;
+export const sqlIp = process.env.SQL_SERVER_IP;
+export const sqlPort = process.env.SQL_SERVER_PORT;
+export const sqlUser = process.env.SQL_USER;
+export const sqlDb = process.env.SQL_DB;
+export const sqlPass = process.env.SQL_PASS;
