@@ -11,13 +11,13 @@ jobs:
     runs-on: dev
     steps:
     - uses: actions/checkout@v3
+    - name: 'Create env file'
+      run: |
+        touch .env
+        echo "${{ secrets.SQL_SERVER_IP}}" > .env
+        echo "${{ secrets.SQL_SERVER_PORT }}" > .env
+        echo "${{ secrets.SQL_USER }}" > .env
+        echo "${{ secrets.SQL_DB }}" > .env
+        echo "${{ secrets.APP_PORT }}" > .env
     - name: Build the Docker image
       run: docker build . --file Dockerfile_dev --tag walwalka/coinlistsbackend:dev
-      env:
-        CI: true
-        SQL_SERVER_IP: ${{secrets.SQL_SERVER_IP}}
-        SQL_SERVER_PORT: ${{secrets.SQL_SERVER_PORT}}
-        SQL_USER: ${{secrets.SQL_USER}}
-        SQL_DB: ${{secrets.SQL_DB}}
-        SQL_PASS: ${{secrets.SQL_PASS}}
-        APP_PORT: ${{secrets.APP_PORT}}
