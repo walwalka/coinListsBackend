@@ -1,7 +1,7 @@
 import process from 'node:process';
 import * as dotenv from 'dotenv'
 
-dotenv.config({path: '.env'});
+dotenv.config({path: `.env.${process.env.NODE_ENV}` });
 
 export const PORT = process.env.APP_PORT;
 export const sqlIp = process.env.SQL_SERVER_IP;
