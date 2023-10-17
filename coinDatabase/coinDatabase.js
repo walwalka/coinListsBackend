@@ -1,13 +1,15 @@
+import "dotenv/config.js";
 import pg from 'pg'
+import { sqlIp , sqlDb, sqlPass, sqlUser, sqlPort } from '../config.js';
 
 const { Pool } = pg;
 
 export const pool = new Pool({
-    user: 'coinsapp-srv',
-    host: '10.2.100.54',
-    database: 'coins',
-    password: 'FoW3cN2NnirYyv9ary69',
-    port: 5432,
+    user: sqlUser,
+    host: sqlIp,
+    database: sqlDb,
+    password: sqlPass,
+    port: sqlPort,
   });
 
   async function createCoinTable() {

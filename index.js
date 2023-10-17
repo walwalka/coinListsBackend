@@ -1,8 +1,10 @@
-import express from 'express';
+import "dotenv/config.js";
 import { PORT } from './config.js';
+import express from 'express';
 import coinRoute from './routes/coinRoutePostrges.js';
 import cors from 'cors';
 
+console.log(process.env.NODE_ENV);
 
 const app = express();
 

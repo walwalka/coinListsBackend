@@ -14,5 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: 'Create env file'
+      run: |
+        echo 'SQL_SERVER_IP=${{secrets.PROD_SQL_SERVER_IP}}' >> .env
+        echo 'SQL_SERVER_PORT=${{secrets.SQL_SERVER_PORT}}' >> .env
+        echo 'SQL_USER=${{secrets.SQL_USER}}' >> .env
+        echo 'SQL_DB=${{secrets.SQL_DB}}' >> .env
+        echo 'SQL_PASS=${{secrets.SQL_PASS}}' >> .env
+        echo 'APP_PORT=${{secrets.APP_PORT}}' >> .env
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag walwalka/coinlistsbackend:prod

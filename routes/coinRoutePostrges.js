@@ -4,7 +4,7 @@ import { pool } from '../coinDatabase/coinDatabase.js';
 const router = express.Router();
 
 router.get('/', (request, response) => {
-    response.send('Hello World!')
+    response.status(200).send('Welcome to the Coins Backend Server!')
   });
 
 router.post('/api', async (request, response) => {
