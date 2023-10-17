@@ -20,6 +20,6 @@ jobs:
         envkey_SQL_USER: ${{secrets.SQL_USER}}
         envkey_SQL_DB: ${{secrets.SQL_DB}}
         envkey_APP_PORT: ${{secrets.APP_PORT}}
-        file_name: .env.devlopment
+        file_name: .env.development
     - name: Build the Docker image
       run: docker build . --file Dockerfile_dev --tag walwalka/coinlistsbackend:dev
