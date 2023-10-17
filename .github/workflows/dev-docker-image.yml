@@ -16,11 +16,12 @@ jobs:
       uses: SpicyPizza/create-envfile@v2
       with:
         file_name: .env.development
-        SQL_SERVER_IP: ${{secrets.SQL_SERVER_IP}}
-        SQL_SERVER_PORT: ${{secrets.SQL_SERVER_PORT}}
-        SQL_USER: ${{secrets.SQL_USER}}
-        SQL_DB: ${{secrets.SQL_DB}}
-        APP_PORT: ${{secrets.APP_PORT}}
+      run: |
+        echo 'SQL_SERVER_IP=${{secrets.SQL_SERVER_IP}}' >> .env.development
+        echo 'SQL_SERVER_PORT=${{secrets.SQL_SERVER_PORT}}' >> .env.development
+        echo 'SQL_USER=${{secrets.SQL_USER}}' >> .env.development
+        echo 'SQL_DB=${{secrets.SQL_DB}}' >> .env.development
+        echo 'APP_PORT=${{secrets.APP_PORT}}' >> .env.development
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile_dev --tag walwalka/coinlistsbackend:dev
