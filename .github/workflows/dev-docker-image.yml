@@ -39,7 +39,7 @@ jobs:
         context: .
         file: ./Dockerfile_dev
         push: true
-        tags: dev
+        tags: walwalka/coinlistsbackend:dev
 
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile_dev --tag walwalka/coinlistsbackend:dev
