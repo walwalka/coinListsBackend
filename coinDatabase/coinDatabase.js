@@ -35,3 +35,22 @@ export const pool = new Pool({
   
   createCoinTable();
 
+  async function createMintTable() {
+    try {
+      const query = `
+        CREATE TABLE IF NOT EXISTS mintlocations (
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          city VARCHAR(255) NOT NULL
+        );
+      `;
+  
+      await pool.query(query);
+      console.log('Mint table created');
+    } catch (error) {
+      console.error(error);
+      console.error('Mint table creation failed');
+    }
+  }
+  
+  createMintTable();
