@@ -26,6 +26,8 @@ app.get('/health', (request, response) => {
 
 app.use('/coins', coinRoute);
 
+app.use('/mintlocations', coinRoute);
+
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
   });

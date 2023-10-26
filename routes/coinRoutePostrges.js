@@ -111,4 +111,17 @@ router.delete('/api/:id', async (request, response) => {
   }
 });
 
+router.get('/mints', async (request, response) => {
+  try {
+    const query = 'SELECT * FROM mintlocations;';
+    const allMints = await pool.query(query);
+    return response.status(200).json({
+      data: allMints
+    });
+    } catch (error) {
+    console.error(error);
+    response.status(500).send('some error has occured in the mint query process.');
+    }
+});
+
 export default router;
