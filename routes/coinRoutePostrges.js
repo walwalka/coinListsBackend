@@ -111,6 +111,31 @@ router.delete('/api/:id', async (request, response) => {
   }
 });
 
+router.post('/mints/create', async (request, response) => {
+  // Validate the incoming JSON data
+  const { name, city, usState } = request.body;
+  console.log(request.body);
+  if (!name || !city || !usState) {
+    return response.status(400).send('One of the name, city or state data points is missing');
+  }
+
+  try {
+    // try to send data to the database
+    const query = `
+      INSERT INTO mintlocations (name, city, state)
+      VALUES ($1, $2, $3)
+      RETURNING id;
+    `;
+    const values = [name, city, usState];
+
+    const result = await pool.query(query, values);
+    response.status(200).send({ message: 'New mint location saved', coinId: result.rows[0].id });
+  } catch (error) {
+    console.error(error);
+    response.status(500).send('some error has occured');
+  }
+});
+
 router.get('/mints', async (request, response) => {
   try {
     const query = 'SELECT * FROM mintlocations;';
