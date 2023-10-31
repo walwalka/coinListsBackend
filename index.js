@@ -1,7 +1,8 @@
 import "dotenv/config.js";
 import { PORT } from './config.js';
 import express from 'express';
-import coinRoute from './routes/coinRoutePostrges.js';
+import coinRoute from './routes/coinRoute.js';
+import mintRoute from './routes/mintRoute.js';
 import cors from 'cors';
 
 console.log(process.env.NODE_ENV);
@@ -26,7 +27,7 @@ app.get('/health', (request, response) => {
 
 app.use('/coins', coinRoute);
 
-app.use('/mintlocations', coinRoute);
+app.use('/mintlocations', mintRoute);
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
