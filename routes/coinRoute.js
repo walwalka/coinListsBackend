@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express, { json, response } from 'express';
 import { pool } from '../database/database.js';
 
 const router = express.Router();
@@ -14,7 +14,6 @@ router.post('/api', async (request, response) => {
     if (!type || !mintlocation || !mintyear || !circulation || !grade) {
       return response.status(400).send('One of the type, mintlocation, mintyear, circulation, grade data points is missing');
     }
-  
     try {
       // try to send data to the database
       const query = `
@@ -37,7 +36,7 @@ router.get('/api', async (request, response) => {
     const query = 'SELECT * FROM coins;';
     const allCoins = await pool.query(query);
     return response.status(200).json({
-      data: allCoins
+      data: allCoins.rows
     });
     } catch (error) {
     console.error(error);
@@ -109,6 +108,19 @@ router.delete('/api/:id', async (request, response) => {
     console.error(error);
     response.status(500).send('some error has occured');
   }
+});
+
+router.get('/newdate', async (request, response) => {
+  try {
+    const query = 'SELECT * FROM coins;';
+    const allCoins = await pool.query(query);
+    return response.status(200).json({
+      data: allCoins.rows
+    });
+    } catch (error) {
+    console.error(error);
+    response.status(500).send('some error has occured');
+    }
 });
 
 export default router;
