@@ -15,6 +15,12 @@ app.use(express.json());
 // middleware for handling CORS policy
 app.use(cors());
 
+app.use('/login', (req, res) => {
+  res.send({
+    token: 'test123'
+  });
+});
+
 app.get('/', (request, response) => {
     console.log(request);
     return response.status(234).send('coinList backend server');
@@ -31,4 +37,4 @@ app.use('/mintlocations', mintRoute);
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
-  });
+});

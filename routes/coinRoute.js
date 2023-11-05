@@ -110,17 +110,4 @@ router.delete('/api/:id', async (request, response) => {
   }
 });
 
-router.get('/newdate', async (request, response) => {
-  try {
-    const query = 'SELECT * FROM coins;';
-    const allCoins = await pool.query(query);
-    return response.status(200).json({
-      data: allCoins.rows
-    });
-    } catch (error) {
-    console.error(error);
-    response.status(500).send('some error has occured');
-    }
-});
-
 export default router;
